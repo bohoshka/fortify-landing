@@ -44,7 +44,7 @@
       <h1><span class="grad">See risk before it sees you.</span></h1>
       <p>AI‑first portfolio diagnostics using factor models, stress scenarios, and explainable narratives. Hedge‑fund‑grade analytics — made human.</p>
       <div class="cta">
-        <a class="btn primary" href="#join">Join waitlist</a>
+        <a class="btn primary" href="#join" data-waitlist-source="join_waitlist">Join waitlist</a>
         <a class="btn secondary" href="#demo">See a demo report</a>
       </div>
       <ul class="badges">
@@ -111,7 +111,7 @@
           <li>1 scenario</li>
           <li>HTML report</li>
         </ul>
-        <a class="btn secondary" href="#join">Join beta</a>
+        <a class="btn secondary" href="#join" data-waitlist-source="join_beta">Join beta</a>
       </div>
       <div class="plan glass highlight">
         <h3>Pro</h3>
@@ -121,7 +121,7 @@
           <li>PDF export</li>
           <li>Telegram integration</li>
         </ul>
-        <a class="btn primary" href="#join">Get early access</a>
+        <a class="btn primary" href="#join" data-waitlist-source="get_early_access">Get early access</a>
       </div>
       <div class="plan glass">
         <h3>API</h3>
@@ -138,11 +138,12 @@
 
   <section id="join" class="container signup glass">
     <h2>Join the waitlist</h2>
-    <form id="waitlist" class="inline" action="https://formspree.io/f/xdknlzyo" method="POST">
+    <form id="waitlist" class="inline" method="POST" novalidate>
+      <input type="hidden" name="source" value="join_waitlist" />
       <input type="email" name="email" placeholder="you@domain.com" required />
       <button class="btn primary" type="submit">Notify me</button>
     </form>
-    <p class="fine">We’ll only email about Fortify. No spam. Unsubscribe anytime.</p>
+    <p class="fine" id="waitlist-status" role="status" aria-live="polite">We’ll only email about Fortify. No spam. Unsubscribe anytime.</p>
   </section>
 
   <footer class="container footer">
