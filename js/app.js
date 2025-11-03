@@ -36,7 +36,6 @@ if (waitlistForm) {
     event.preventDefault();
     const submitButton = waitlistForm.querySelector('button');
     const emailInput = waitlistForm.querySelector('input[name="email"]');
-    const sourceInput = waitlistForm.querySelector('input[name="source"]');
 
     if (!emailInput || !emailInput.value) {
       if (statusMessage) {
@@ -51,13 +50,12 @@ if (waitlistForm) {
     }
 
     try {
-      const response = await fetch('/api/waitlist', {
+      // Use FormData to include all form fields including honeypot
+      const formData = new FormData(waitlistForm);
+      
+      const response = await fetch(waitlistForm.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: emailInput.value,
-          source: sourceInput ? sourceInput.value : 'waitlist',
-        }),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -65,9 +63,6 @@ if (waitlistForm) {
       }
 
       waitlistForm.reset();
-      if (sourceInput) {
-        sourceInput.value = 'join_waitlist';
-      }
       if (statusMessage) {
         statusMessage.textContent = 'Thanks! You\'re on the list — we\'ll be in touch soon.';
       }

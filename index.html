@@ -140,6 +140,7 @@
     <h2>Join the waitlist</h2>
     <form id="waitlist" class="inline" action="https://api.getfortify.ai/v1/lead-form" method="POST">
       <input type="email" name="email" placeholder="you@domain.com" required />
+      <input type="hidden" name="source" value="join_waitlist">
       <input type="text" name="hp" tabindex="-1" autocomplete="off" style="display:none">
       <button class="btn primary" type="submit">Notify me</button>
     </form>
