@@ -78,13 +78,9 @@ if (waitlistForm) {
       if (statusMessage) {
         statusMessage.textContent = 'Sorry, something went wrong. Please try again in a moment.';
       }
-    } finally {
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = 'Notify me';
-      }
-      if (statusMessage && !statusMessage.textContent) {
-        statusMessage.textContent = defaultStatusText;
       }
     }
   });

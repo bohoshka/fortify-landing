@@ -51,7 +51,10 @@ async function parseJsonBody(req) {
 }
 
 function isValidEmail(email) {
-  return typeof email === 'string' && /.+@.+\..+/.test(email);
+  if (typeof email !== 'string') return false;
+  // RFC 5322 compliant email validation (simplified)
+  const pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+  return pattern.test(email);
 }
 
 async function serveStatic(urlPath, res, method) {
@@ -77,7 +80,7 @@ async function serveStatic(urlPath, res, method) {
 
   if (stat.isDirectory()) {
     filePath = path.join(filePath, 'index.html');
-    stat = await fs.stat(filePath);
+    await fs.stat(filePath);
   }
 
   const ext = path.extname(filePath).toLowerCase();
