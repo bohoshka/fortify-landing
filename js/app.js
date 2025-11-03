@@ -50,12 +50,26 @@ if (waitlistForm) {
     }
 
     try {
-      // Use FormData to include all form fields including honeypot
-      const formData = new FormData(waitlistForm);
-      
-      const response = await fetch(waitlistForm.action, {
+      const sourceInput = waitlistForm.querySelector('input[name="source"]');
+      const honeypotInput = waitlistForm.querySelector('input[name="hp"]');
+
+      const getAttr = typeof waitlistForm.getAttribute === 'function'
+        ? (name) => waitlistForm.getAttribute(name)
+        : () => null;
+      const endpoint = getAttr('data-endpoint')
+        || getAttr('action')
+        || waitlistForm.action
+        || '/api/waitlist';
+      const payload = {
+        email: emailInput.value.trim(),
+        source: (sourceInput && sourceInput.value ? sourceInput.value.trim() : 'waitlist') || 'waitlist',
+        hp: honeypotInput ? honeypotInput.value : '',
+      };
+
+      const response = await fetch(endpoint, {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
