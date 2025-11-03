@@ -1,0 +1,68 @@
+/* Fortify Futuristic Landing Styles */
+:root{
+  --bg:#0b0f19;
+  --panel:#0f1424cc;
+  --text:#dfe7ff;
+  --muted:#9fb0ffcc;
+  --accent:#6cf7ff;
+  --accent2:#7c5cff;
+  --glass: rgba(16,22,43,0.55);
+  --border: rgba(124,92,255,0.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1200px 600px at 20% -10%, #11204a 0%, transparent 60%),
+              radial-gradient(1000px 500px at 80% -20%, #2a0f60 0%, transparent 60%),
+              var(--bg);
+  overflow-x:hidden;
+}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:0.3px}
+.brand .logo{width:28px;height:28px}
+.nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+.nav a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;text-decoration:none;border:1px solid transparent;transition:all .2s ease;font-weight:600}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#08101f;border-color:transparent;box-shadow:0 0 30px #6cf7ff33}
+.btn.secondary{background:transparent;border-color:var(--border);color:var(--text)}
+.btn.ghost{border-color:transparent;color:var(--muted)}
+.btn.secondary:hover{border-color:#8f7cff;color:#fff}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;padding-top:24px}
+.hero-copy h1{font-size:48px;line-height:1.1;margin:0 0 10px}
+.grad{background:linear-gradient(90deg,#9efcff 0%,#7a5cff 50%,#ffacff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{color:var(--muted);max-width:56ch}
+.cta{display:flex;gap:12px;margin:16px 0 8px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.badges li{padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:#c9d1ff;font-size:12px}
+.hero-visual{justify-self:end;backdrop-filter: blur(6px)}
+.hero-visual img{width:100%;max-width:520px;filter:drop-shadow(0 20px 40px #0008)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+.card{background:var(--glass);border:1px solid var(--border);padding:20px;border-radius:16px}
+.card h3{margin-top:4px}
+.scenarios{margin-top:42px}
+.scenarios .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{border:1px dashed var(--border);border-radius:16px;padding:18px;background:rgba(10,14,28,0.45)}
+.tile span{font-size:24px}
+.pricing{margin-top:50px;text-align:center}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+.plan{padding:22px;border-radius:18px;border:1px solid var(--border);background:var(--glass)}
+.plan.highlight{box-shadow:0 0 50px #6f5cff33, inset 0 0 0 1px #7c5cff44}
+.price{font-size:42px;margin:8px 0}
+.signup{margin:46px auto;text-align:center;padding:22px;border-radius:18px;border:1px solid var(--border)}
+.signup .inline{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.signup input{min-width:260px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(5,10,24,0.6);color:#e7ecff}
+.fine{color:#9fb0ff99;font-size:12px;margin-top:8px}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px;color:#9fb0ffaa}
+.glass{background:var(--glass);border:1px solid var(--border);border-radius:22px;padding:22px}
+.bg-grid::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(#ffffff08 1px, transparent 1px),linear-gradient(90deg,#ffffff0a 1px, transparent 1px);background-size:60px 60px, 60px 60px;mask-image:radial-gradient(900px 600px at 50% -10%, #000 35%, transparent 70%)}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:18px}
+  .features{grid-template-columns:1fr}
+  .scenarios .grid{grid-template-columns:repeat(2,1fr)}
+  .plans{grid-template-columns:1fr}
+  .signup .inline{flex-direction:column}
+}
