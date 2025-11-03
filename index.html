@@ -138,12 +138,15 @@
 
   <section id="join" class="container signup glass">
     <h2>Join the waitlist</h2>
-    <form id="waitlist" class="inline" method="POST" novalidate>
-      <input type="hidden" name="source" value="join_waitlist" />
+    <form id="waitlist" class="inline" action="https://api.getfortify.ai/v1/lead-form" method="POST">
       <input type="email" name="email" placeholder="you@domain.com" required />
+      <input type="text" name="hp" tabindex="-1" autocomplete="off" style="display:none">
       <button class="btn primary" type="submit">Notify me</button>
     </form>
     <p class="fine" id="waitlist-status" role="status" aria-live="polite">We’ll only email about Fortify. No spam. Unsubscribe anytime.</p>
+    <script>
+    const f=document.getElementById('waitlist'); if(f){f.addEventListener('submit',e=>{const b=f.querySelector('button');if(b){b.disabled=true;b.textContent='Sending…';}const status=document.getElementById('waitlist-status');if(status){status.textContent='Sending…';}});}
+    </script>
   </section>
 
   <footer class="container footer">
