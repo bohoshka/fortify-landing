@@ -66,3 +66,20 @@ body{
   .plans{grid-template-columns:1fr}
   .signup .inline{flex-direction:column}
 }
+
+@media (max-width:600px){
+  .container{padding:18px}
+  .nav{flex-direction:column;align-items:flex-start;gap:12px}
+  .nav a{margin-left:0}
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:12px}
+  .hero-copy h1{font-size:32px;line-height:1.2}
+  .hero-copy p{margin:0 auto}
+  .cta{flex-direction:column;align-items:stretch}
+  .hero-visual{justify-self:center}
+  .features{gap:16px}
+  .scenarios .grid{grid-template-columns:1fr}
+  .plans{gap:12px}
+  .signup .inline{width:100%}
+  .signup input{width:100%}
+  .footer{flex-direction:column;align-items:flex-start;gap:12px}
+}
